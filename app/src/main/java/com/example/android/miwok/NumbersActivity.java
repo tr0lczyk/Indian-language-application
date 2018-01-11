@@ -29,18 +29,16 @@ public class NumbersActivity extends AppCompatActivity {
         words.add("ten");
 
         LinearLayout rootView =(LinearLayout) findViewById(R.id.rootView);
-        
-        TextView wordView = new TextView(this);
-        wordView.setText(words.get(0));
-        rootView.addView(wordView);
 
-        TextView wordView2 = new TextView(this);
-        wordView2.setText(words.get(1));
-        rootView.addView(wordView2);
+        int index = 0;
 
-        TextView wordView3 = new TextView(this);
-        wordView3.setText(words.get(2));
-        rootView.addView(wordView3);
+        while (index < words.size()){
+            TextView wordView = new TextView(this);
+            wordView.setText(words.get(index));
+            rootView.addView(wordView);
+            word
+            index++;
+        }
     }
 
 
