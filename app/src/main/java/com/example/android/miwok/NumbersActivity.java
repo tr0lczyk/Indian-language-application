@@ -32,8 +32,7 @@ public class NumbersActivity extends AppCompatActivity {
         setContentView(R.layout.activity_numbers);
 
         // Create a list of words
-        ArrayList<Word> words = new ArrayList<Word>();
-
+        ArrayList<Word> words = new ArrayList<>();
         words.add(new Word("one","lutti"));
         words.add(new Word("two","otiiko"));
         words.add(new Word("three","tolookosu"));
@@ -45,7 +44,7 @@ public class NumbersActivity extends AppCompatActivity {
         words.add(new Word("nine","wo'e"));
         words.add(new Word("ten","na'aacha"));
 
-       WordAdapter<Word> itemsArray = new WordAdapter(this,R.layout.list_item,words);
+       WordAdapter itemsArray = new WordAdapter(this, words);
         ListView listView = (ListView) findViewById(R.id.list);
         listView.setAdapter(itemsArray);
     }
