@@ -44,9 +44,8 @@ public class NumbersActivity extends AppCompatActivity {
         words.add("nine");
         words.add("ten");
 
-        ArrayAdapter<String> itemsArray = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1,words);
-        ListView listView = (ListView) findViewById(R.id.list);
-        listView.setAdapter(itemsArray);
+        ArrayAdapter<String> itemsArray = new ArrayAdapter<String>(this,R.layout.list_item,words);
+        ListView listView = (ListView) findViewById()
 
     }
 }
