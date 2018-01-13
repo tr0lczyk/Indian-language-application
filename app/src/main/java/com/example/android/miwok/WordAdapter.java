@@ -15,6 +15,7 @@ import java.util.ArrayList;
  * Created by Mateusz on 12.01.2018.
  */
 
+
 public class WordAdapter extends ArrayAdapter<Word> {
 
     public WordAdapter(Activity context, ArrayList<Word> androidFlavors) {
@@ -24,6 +25,7 @@ public class WordAdapter extends ArrayAdapter<Word> {
         // going to use this second argument, so it can be any value. Here, we used 0.
         super(context, 0, androidFlavors);
     }
+//    ;
 
 
     @Override
