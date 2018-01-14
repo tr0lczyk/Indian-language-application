@@ -31,13 +31,13 @@ public class MainActivity extends AppCompatActivity {
         // Set the content of the activity to use the activity_main.xml layout file
         setContentView(R.layout.activity_main);
         TextView numbers = (TextView) findViewById(R.id.numbers);
-        final TextView family = (TextView) findViewById(R.id.family);
+        TextView family = (TextView) findViewById(R.id.family);
         TextView colors = (TextView) findViewById(R.id.colors);
         TextView phrases = (TextView) findViewById(R.id.phrases);
 
-        numbers.setOnClickListener(new View.OnClickListener(){
+        numbers.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view){
+            public void onClick(View view) {
                 Intent numbersIntent = new Intent(MainActivity.this,NumbersActivity.class);
                 startActivity(numbersIntent);
             }
@@ -55,17 +55,10 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent colorsIntent = new Intent(MainActivity.this,ColorsActivity.class);
-                startActivity(colorsIntent);
             }
         });
 
-        phrases.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent phrasesIntent = new Intent(MainActivity.this,PhrasesActivity.class);
-                startActivity(phrasesIntent);
-            }
-        });
+
 
     }
 
