@@ -10,16 +10,16 @@ public class Word {
 
     private String mMiwokTranslation;
 
-    public Word( String defaultTranslation, String miwokTranslation){
+    public Word(String defaultTranslation, String miwokTranslation) {
         mDefaultTranslation = defaultTranslation;
         mMiwokTranslation = miwokTranslation;
     }
 
-    public String getDefaultTranslation(){
+    public String getDefaultTranslation() {
         return mDefaultTranslation;
     }
 
-    public String getMiwokTranslation(){
+    public String getMiwokTranslation() {
         return mMiwokTranslation;
     }
 }
