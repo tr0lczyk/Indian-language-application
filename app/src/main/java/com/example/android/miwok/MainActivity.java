@@ -55,15 +55,16 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent colorsIntent = new Intent(MainActivity.this,ColorsActivity.class);
+                startActivity(colorsIntent);
             }
         });
 
-
-
+        phrases.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent phrasesIntent = new Intent(MainActivity.this,PhrasesActivity.class);
+                startActivity(phrasesIntent);
+            }
+        });
     }
-
-
-
-
-
 }
