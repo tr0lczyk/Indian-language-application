@@ -70,7 +70,7 @@ public class WordAdapter extends ArrayAdapter<Word> {
         View textContainer = listItemView.findViewById(R.id.text_container);
         int color = ContextCompat.getColor(getContext(), mColorResourceId);
         textContainer.setBackgroundColor(color);
-        
+
         // Return the whole list item layout (containing 2 TextViews and an ImageView)
         // so that it can be shown in the ListView
         return listItemView;
