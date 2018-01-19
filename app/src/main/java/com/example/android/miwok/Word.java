@@ -14,6 +14,8 @@ public class Word {
 
     private static final int NO_IMAGE_PROVIDED = -1;
 
+    private int m
+
 
     public Word(String defaultTranslation, String miwokTranslation) {
         mDefaultTranslation = defaultTranslation;
