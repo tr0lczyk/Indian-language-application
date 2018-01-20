@@ -21,6 +21,18 @@ public class FamilyActivity extends AppCompatActivity {
         }
     };
 
+     /*
+    *
+    * releasing the mediaplayer audio file when app stops
+    * */
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        releaseMediaPlayer();
+    }
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

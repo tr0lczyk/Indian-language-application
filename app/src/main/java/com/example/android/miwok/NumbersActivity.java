@@ -27,7 +27,17 @@ import java.util.ArrayList;
 
 public class NumbersActivity extends AppCompatActivity {
 
+
+    /*
+    * Media playaer private object
+    * */
+
     private MediaPlayer mMediaPlayer;
+
+    /*
+    *
+    * setting the release mediaplayer ehen music completes playing
+    * */
 
     private MediaPlayer.OnCompletionListener mCompletionListener = new MediaPlayer.OnCompletionListener() {
         @Override
@@ -35,6 +45,23 @@ public class NumbersActivity extends AppCompatActivity {
             releaseMediaPlayer();
         }
     };
+
+    /*
+    *
+    * releasing the mediaplayer audio file when app stops
+    * */
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        releaseMediaPlayer();
+    }
+
+    /*creation of the class
+    *
+    *
+    *
+    * */
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -67,9 +94,15 @@ public class NumbersActivity extends AppCompatActivity {
                 mMediaPlayer = MediaPlayer.create(NumbersActivity.this, word.getAudioResourceId());
                 mMediaPlayer.start();
                 mMediaPlayer.setOnCompletionListener(mCompletionListener);
+
             }
         });
     }
+
+    /*ending the playing of the mediaplayer object
+    *
+    *
+    * */
 
     private void releaseMediaPlayer() {
         // If the media player is not null, then it may be currently playing a sound.
