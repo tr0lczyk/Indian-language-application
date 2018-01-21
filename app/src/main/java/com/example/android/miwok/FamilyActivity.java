@@ -28,12 +28,12 @@ public class FamilyActivity extends AppCompatActivity {
         @Override
         public void onAudioFocusChange(int focusChange) {
             if (focusChange == AudioManager.AUDIOFOCUS_LOSS_TRANSIENT ||
-                    focusChange == AudioManager.AUDIOFOCUS_LOSS_TRANSIENT_CAN_DUCK){
+                    focusChange == AudioManager.AUDIOFOCUS_LOSS_TRANSIENT_CAN_DUCK) {
                 mMediaPlayer.pause();
                 mMediaPlayer.seekTo(0);
-            } else if (focusChange == AudioManager.AUDIOFOCUS_GAIN){
+            } else if (focusChange == AudioManager.AUDIOFOCUS_GAIN) {
                 mMediaPlayer.start();
-            } else if (focusChange == AudioManager.AUDIOFOCUS_LOSS){
+            } else if (focusChange == AudioManager.AUDIOFOCUS_LOSS) {
                 releaseMediaPlayer();
             }
         }
@@ -82,7 +82,7 @@ public class FamilyActivity extends AppCompatActivity {
                 int result = mAudioManager.requestAudioFocus(mOnAudioFocusChangeListener,
                         AudioManager.STREAM_MUSIC,
                         AudioManager.AUDIOFOCUS_GAIN_TRANSIENT);
-                if (result == AudioManager.AUDIOFOCUS_REQUEST_GRANTED){
+                if (result == AudioManager.AUDIOFOCUS_REQUEST_GRANTED) {
                     mMediaPlayer = MediaPlayer.create(FamilyActivity.this, word.getAudioResourceId());
                     mMediaPlayer.start();
                     mMediaPlayer.setOnCompletionListener(mCompletionListener);
@@ -92,8 +92,8 @@ public class FamilyActivity extends AppCompatActivity {
 
     }
 
-    private void releaseMediaPlayer(){
-        if (mMediaPlayer != null){
+    private void releaseMediaPlayer() {
+        if (mMediaPlayer != null) {
             mMediaPlayer.release();
             mMediaPlayer = null;
             mAudioManager.abandonAudioFocus(mOnAudioFocusChangeListener);
