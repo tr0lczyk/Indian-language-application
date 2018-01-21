@@ -13,12 +13,10 @@
         android:layout_height="@dimen/list_item_height"
         tools:src="@mipmap/ic_launcher"/>
 
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="88dp"
-        android:orientation="vertical"
         android:paddingLeft="16dp"
-        android:gravity="center_vertical"
         android:id="@+id/text_container">
 
         <TextView
@@ -28,7 +26,9 @@
             tools:text="lutti"
             android:textStyle="bold"
             android:textColor="@android:color/white"
-            android:textAppearance="?android:textAppearanceMedium"/>
+            android:textAppearance="?android:textAppearanceMedium"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="20dp"/>
 
         <TextView
             android:id="@+id/default_text_view"
@@ -36,8 +36,18 @@
             android:layout_height="wrap_content"
             tools:text="one"
             android:textColor="@android:color/white"
-            android:textAppearance="?android:textAppearanceMedium"/>
+            android:textAppearance="?android:textAppearanceMedium"
+            android:layout_alignParentBottom="true"
+            android:layout_below="@id/miwok_text_view"/>
 
-    </LinearLayout>
+        <ImageView
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:src="@drawable/ic_play_arrow"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="16dp"/>
+
+    </RelativeLayout>
 
 </LinearLayout>
