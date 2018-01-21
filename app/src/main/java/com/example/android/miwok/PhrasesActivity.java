@@ -24,16 +24,16 @@ public class PhrasesActivity extends AppCompatActivity {
         }
     };
 
-    AudioManager.OnAudioFocusChangeListener mAudioFocus = new AudioManager.OnAudioFocusChangeListener() {
+    AudioManager.OnAudioFocusChangeListener mOnAudioFocusChangeListener = new AudioManager.OnAudioFocusChangeListener() {
         @Override
         public void onAudioFocusChange(int focusChange) {
             if (focusChange == AudioManager.AUDIOFOCUS_LOSS_TRANSIENT ||
-                    focusChange == AudioManager.AUDIOFOCUS_LOSS_TRANSIENT_CAN_DUCK){
+                    focusChange == AudioManager.AUDIOFOCUS_LOSS_TRANSIENT_CAN_DUCK) {
                 mMediaPlayer.pause();
                 mMediaPlayer.seekTo(0);
-            } else if (focusChange == AudioManager.AUDIOFOCUS_GAIN){
+            } else if (focusChange == AudioManager.AUDIOFOCUS_GAIN) {
                 mMediaPlayer.start();
-            } else if (focusChange == AudioManager.AUDIOFOCUS_LOSS){
+            } else if (focusChange == AudioManager.AUDIOFOCUS_LOSS) {
                 releaseMediaPlayer();
             }
         }
@@ -79,17 +79,14 @@ public class PhrasesActivity extends AppCompatActivity {
                 Word word = words.get(position);
                 releaseMediaPlayer();
 
-                int result = mAudioManager.requestAudioFocus(afCHangeListener,
+                int result = mAudioManager.requestAudioFocus(mOnAudioFocusChangeListener,
                         AudioManager.STREAM_MUSIC,
                         AudioManager.AUDIOFOCUS_GAIN_TRANSIENT);
-                if (result == AudioManager.AUDIOFOCUS_REQUEST_GRANTED){
-                    mAudioManager.registerMediaButtonEventReceiver(RemoteControlReceiver);
+                if (result == AudioManager.AUDIOFOCUS_REQUEST_GRANTED) {
+                    mMediaPlayer = MediaPlayer.create(PhrasesActivity.this, word.getAudioResourceId());
+                    mMediaPlayer.start();
+                    mMediaPlayer.setOnCompletionListener(mCompletionListener);
                 }
-
-                mMediaPlayer = MediaPlayer.create(PhrasesActivity.this, word.getAudioResourceId());
-                mMediaPlayer.start();
-                mMediaPlayer.setOnCompletionListener(mCompletionListener);
-
             }
         });
     }
@@ -98,6 +95,7 @@ public class PhrasesActivity extends AppCompatActivity {
         if (mMediaPlayer != null) {
             mMediaPlayer.release();
             mMediaPlayer = null;
+            mAudioManager.abandonAudioFocus(mOnAudioFocusChangeListener);
         }
     }
 
