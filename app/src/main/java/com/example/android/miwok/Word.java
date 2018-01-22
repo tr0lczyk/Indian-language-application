@@ -4,7 +4,16 @@ package com.example.android.miwok;
  * Created by Mateusz on 12.01.2018.
  */
 
+
+
+
 public class Word {
+
+    /*
+
+    * variables, that are states of the class object
+    *
+    * */
 
     private String mDefaultTranslation;
 
@@ -15,6 +24,12 @@ public class Word {
     private static final int NO_IMAGE_PROVIDED = -1;
 
     private int mAudioResourceId;
+
+    /*
+    *
+    * patern of the object creation
+    *
+    * */
 
 
     public Word(String defaultTranslation, String miwokTranslation, int audioResourceId) {
@@ -29,6 +44,12 @@ public class Word {
         mImageResourceId = imageResourceId;
         mAudioResourceId = audioResourceId;
     }
+
+    /*
+    *
+    * class' methods
+    *
+    * */
 
     public String getDefaultTranslation() {
         return mDefaultTranslation;

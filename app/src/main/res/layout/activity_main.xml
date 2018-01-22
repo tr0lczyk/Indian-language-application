@@ -7,6 +7,9 @@
     android:orientation="vertical"
     tools:context="com.example.android.miwok.MainActivity">
 
+
+    <!-- Main menu layout - added focus frame functionality-->
+
     <!-- Numbers category -->
     <FrameLayout
         android:layout_width="match_parent"

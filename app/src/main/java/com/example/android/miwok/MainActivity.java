@@ -35,6 +35,11 @@ public class MainActivity extends AppCompatActivity {
         TextView colors = (TextView) findViewById(R.id.colors);
         TextView phrases = (TextView) findViewById(R.id.phrases);
 
+        /*
+        * Main categories' intents
+        *
+        * */
+
         numbers.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
