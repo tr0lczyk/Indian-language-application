@@ -13,9 +13,18 @@ import java.util.ArrayList;
 
 public class PhrasesActivity extends AppCompatActivity {
 
+    /*
+    * Media playaer private object
+    * */
+
     private MediaPlayer mMediaPlayer;
 
     private AudioManager mAudioManager;
+
+    /*
+    *
+    * setting the release mediaplayer ehen music completes playing
+    * */
 
     private MediaPlayer.OnCompletionListener mCompletionListener = new MediaPlayer.OnCompletionListener() {
         @Override
@@ -23,6 +32,12 @@ public class PhrasesActivity extends AppCompatActivity {
             releaseMediaPlayer();
         }
     };
+
+    /*
+    *
+    * AudioFocus change listener added
+    *
+    * */
 
     AudioManager.OnAudioFocusChangeListener mOnAudioFocusChangeListener = new AudioManager.OnAudioFocusChangeListener() {
         @Override
@@ -49,6 +64,12 @@ public class PhrasesActivity extends AppCompatActivity {
         releaseMediaPlayer();
     }
 
+    /*creation of the class
+    *
+    *
+    *
+    * */
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,6 +78,7 @@ public class PhrasesActivity extends AppCompatActivity {
 
         mAudioManager = (AudioManager) getSystemService(Context.AUDIO_SERVICE);
 
+        // Create a list of words Word objects
         final ArrayList<Word> words = new ArrayList<>();
         words.add(new Word("Where are you going?", "minto wuksus", R.raw.phrase_where_are_you_going));
         words.add(new Word("What is your name?", "tinne oyaase'na", R.raw.phrase_what_is_your_name));
@@ -68,6 +90,12 @@ public class PhrasesActivity extends AppCompatActivity {
         words.add(new Word("I'm coming", "eenem", R.raw.phrase_im_coming));
         words.add(new Word("Let's go", "yoowutis", R.raw.phrase_lets_go));
         words.add(new Word("Come here", "enni'nem", R.raw.phrase_come_here));
+
+        /*
+        * connecting adapter with the ArrayList
+        *
+        * and setting onCLickListener to activate the sounds
+        * */
 
         WordAdapter itemsArray = new WordAdapter(this, words, R.color.category_phrases);
         ListView listView = (ListView) findViewById(R.id.list);
@@ -90,6 +118,12 @@ public class PhrasesActivity extends AppCompatActivity {
             }
         });
     }
+
+    /*
+    *
+    *ending the playing of the mediaplayer object and leaving the actual focus
+    *
+    * */
 
     private void releaseMediaPlayer() {
         if (mMediaPlayer != null) {

@@ -14,9 +14,18 @@ import java.util.List;
 
 public class FamilyActivity extends AppCompatActivity {
 
+    /*
+    * Media playaer private object
+    * */
+
     private MediaPlayer mMediaPlayer;
 
     private AudioManager mAudioManager;
+
+    /*
+    *
+    * setting the release mediaplayer ehen music completes playing
+    * */
 
     private MediaPlayer.OnCompletionListener mCompletionListener = new MediaPlayer.OnCompletionListener() {
         @Override
@@ -24,6 +33,12 @@ public class FamilyActivity extends AppCompatActivity {
             releaseMediaPlayer();
         }
     };
+
+    /*
+    *
+    * AudioFocus change listener added
+    *
+    * */
 
     AudioManager.OnAudioFocusChangeListener mOnAudioFocusChangeListener = new AudioManager.OnAudioFocusChangeListener() {
         @Override
@@ -51,6 +66,12 @@ public class FamilyActivity extends AppCompatActivity {
         releaseMediaPlayer();
     }
 
+    /*creation of the class
+    *
+    *
+    *
+    * */
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,7 +80,7 @@ public class FamilyActivity extends AppCompatActivity {
 
         mAudioManager = (AudioManager) getSystemService(Context.AUDIO_SERVICE);
 
-
+        // Create a list of words Word objects
         final ArrayList<Word> words = new ArrayList<>();
         words.add(new Word("father", "epe", R.drawable.family_father, R.raw.family_father));
         words.add(new Word("mother", "eta", R.drawable.family_mother, R.raw.family_mother));
@@ -71,6 +92,13 @@ public class FamilyActivity extends AppCompatActivity {
         words.add(new Word("younger sister", "kolliti", R.drawable.family_younger_sister, R.raw.family_younger_sister));
         words.add(new Word("grandmother", "ama", R.drawable.family_grandmother, R.raw.family_grandmother));
         words.add(new Word("grandfather", "paapa", R.drawable.family_grandfather, R.raw.family_grandfather));
+
+
+        /*
+        * connecting adapter with the ArrayList
+        *
+        * and setting onCLickListener to activate the sounds
+        * */
 
 
         WordAdapter itemsArray = new WordAdapter(this, words, R.color.category_family);
@@ -94,6 +122,12 @@ public class FamilyActivity extends AppCompatActivity {
         });
 
     }
+
+    /*
+    *
+    *ending the playing of the mediaplayer object and leaving the actual focus
+    *
+    * */
 
     private void releaseMediaPlayer() {
         if (mMediaPlayer != null) {

@@ -14,9 +14,18 @@ import java.util.ArrayList;
 
 public class ColorsActivity extends AppCompatActivity {
 
+    /*
+    * Media playaer private object
+    * */
+
     private MediaPlayer mMediaPlayer;
 
     private AudioManager mAudioManager;
+
+    /*
+    *
+    * setting the release mediaplayer ehen music completes playing
+    * */
 
     private MediaPlayer.OnCompletionListener mCompletionListener = new MediaPlayer.OnCompletionListener() {
         @Override
@@ -24,6 +33,12 @@ public class ColorsActivity extends AppCompatActivity {
             releaseMediaPlayer();
         }
     };
+
+    /*
+    *
+    * AudioFocus change listener added
+    *
+    * */
 
     AudioManager.OnAudioFocusChangeListener mOnAudioFocusChangeListener = new AudioManager.OnAudioFocusChangeListener() {
         @Override
@@ -49,6 +64,14 @@ public class ColorsActivity extends AppCompatActivity {
         super.onStop();
         releaseMediaPlayer();
     }
+
+    /*creation of the class
+    *
+    *
+    *
+    * */
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -56,6 +79,7 @@ public class ColorsActivity extends AppCompatActivity {
 
         mAudioManager = (AudioManager) getSystemService(Context.AUDIO_SERVICE);
 
+        // Create a list of words Word objects
         final ArrayList<Word> words = new ArrayList<>();
         words.add(new Word("red", "wetetti", R.drawable.color_red, R.raw.color_red));
         words.add(new Word("green", "chokokki", R.drawable.color_green, R.raw.color_green));
@@ -65,6 +89,12 @@ public class ColorsActivity extends AppCompatActivity {
         words.add(new Word("white", "kelelli", R.drawable.color_white, R.raw.color_white));
         words.add(new Word("dusty yellow", "topiise", R.drawable.color_dusty_yellow, R.raw.color_dusty_yellow));
         words.add(new Word("mustard yellow", "chiwiite", R.drawable.color_mustard_yellow, R.raw.color_mustard_yellow));
+
+        /*
+        * connecting adapter with the ArrayList
+        *
+        * and setting onCLickListener to activate the sounds
+        * */
 
         WordAdapter itemsArray = new WordAdapter(this, words, R.color.category_colors);
         ListView listView = (ListView) findViewById(R.id.list);
@@ -87,6 +117,12 @@ public class ColorsActivity extends AppCompatActivity {
         });
 
     }
+
+    /*
+    *
+    *ending the playing of the mediaplayer object and leaving the actual focus
+    *
+    * */
 
     private void releaseMediaPlayer() {
         if (mMediaPlayer != null) {
