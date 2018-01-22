@@ -52,7 +52,7 @@ public class NumbersActivity extends AppCompatActivity {
 
     /*
     *
-    * AudioFocus change listener added
+    * AudioFocus change listener added to activity
     *
     * */
 
