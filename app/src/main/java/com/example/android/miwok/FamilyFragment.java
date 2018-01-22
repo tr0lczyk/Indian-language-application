@@ -92,7 +92,7 @@ public class FamilyFragment extends Fragment {
         * and setting onCLickListener to activate the sounds
         * */
 
-        WordAdapter itemsArray = new WordAdapter(getActivity(), words, R.color.category_numbers);
+        WordAdapter itemsArray = new WordAdapter(getActivity(), words, R.color.category_family);
         ListView listView = (ListView) rootView.findViewById(R.id.list);
         listView.setAdapter(itemsArray);
 
