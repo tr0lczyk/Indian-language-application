@@ -5,4 +5,4 @@ Appliaction that shows words translation from english to Indian Miwok Language -
 
 The application looks like that:
 
-![](imagesadded/miiwok1.PNG)
+![](imagesadded/miiwok1.PNG)![](imagesadded/miiwok2.PNG)![](imagesadded/miiwok3.PNG)
